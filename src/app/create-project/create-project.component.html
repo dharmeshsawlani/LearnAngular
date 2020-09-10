@@ -1,0 +1,34 @@
+<div class="col-md-12">
+    <h3>Create Project</h3>
+  </div>
+  <div class="col-md-6">
+    <form [formGroup]="sessionForm" (ngSubmit)="saveProject(sessionForm.value)" autocomplete="off">
+      <div class="form-group" [ngClass]="{'error': sessionForm.controls.projectName.invalid && sessionForm.controls.projectName.touched}">
+        <label for="projectName">Project Name:</label>
+        <em *ngIf="sessionForm.controls.projectName.invalid &&
+                  sessionForm.controls.projectName.touched &&
+                  sessionForm.controls.projectName.errors.required">*Required</em>
+        <!-- <em *ngIf="sessionForm.controls.sessionName.invalid &&
+        sessionForm.controls.sessionName.touched &&
+        sessionForm.controls.sessionName.errors?.pattern" >*Alphanumeric characters only</em> -->
+        <input formControlName="projectName" name="projectName" id="projectName" type="text" class="form-control" placeholder="project name..." />
+      </div>
+      <div class="form-group" >
+        <label for="projectManager">Project Manager :</label>
+        <!-- <em *ngIf="sessionForm.controls.presenter.invalid &&
+                  sessionForm.controls.presenter.touched &&
+                  sessionForm.controls.presenter.errors.required">*Required</em> -->
+        <input formControlName="projectManager" name="projectManager" id="projectManager" type="text" class="form-control" placeholder="project manager..." />
+      </div>
+      <div class="form-group" >
+        <label for="percentCompleted">Percentage Completed:</label>
+        <!-- <em *ngIf="sessionForm.controls.presenter.invalid &&
+                  sessionForm.controls.presenter.touched &&
+                  sessionForm.controls.presenter.errors.required">*Required</em> -->
+        <input formControlName="percentCompleted" name="percentCompleted" id="percentCompleted" type="text" class="form-control" placeholder="percentage completed..." />
+      </div>     
+     
+      <button type="submit" class="btn btn-primary">Save</button>
+      <button type="button" class="btn btn-default">Cancel</button>
+    </form>
+  </div>
